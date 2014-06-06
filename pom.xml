@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>ru.kamis</groupId>
+		<artifactId>parent</artifactId>
+		<version>2.0.1</version>
+	</parent>
+
+	<properties>
+		<java.version>1.6</java.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>kamis-repos</id>
+			<url>https://spb.kamis.ru/maven2</url>
+		</repository>
+	</repositories>
+
+	<artifactId>opencv-bundle</artifactId>
+	<version>2.4.9-3</version>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.fusesource.hawtjni</groupId>
+			<artifactId>hawtjni-runtime</artifactId>
+			<version>1.10</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.fusesource.mvnplugins</groupId>
+				<artifactId>maven-uberize-plugin</artifactId>
+				<version>1.31</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>uberize</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

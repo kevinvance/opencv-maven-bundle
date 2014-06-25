@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>ru.kamis</groupId>
 		<artifactId>parent</artifactId>
-		<version>2.0.1</version>
+		<version>2.0.2</version>
 	</parent>
 
 	<properties>
@@ -14,24 +14,47 @@
 
 	<repositories>
 		<repository>
-			<id>kamis-repos</id>
+			<id>kamis-repo</id>
 			<url>https://spb.kamis.ru/maven2</url>
 		</repository>
 	</repositories>
 
 	<artifactId>opencv-bundle</artifactId>
-	<version>2.4.9-3</version>
-	
+	<version>2.4.9-4-SNAPSHOT</version>
+
 	<dependencies>
+		<dependency>
+			<groupId>org.opencv</groupId>
+			<artifactId>opencv-java</artifactId>
+			<version>2.4.9</version>
+		</dependency>
 		<dependency>
 			<groupId>org.fusesource.hawtjni</groupId>
 			<artifactId>hawtjni-runtime</artifactId>
 			<version>1.10</version>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>ru.kamis.opencvbundle.Selftest</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.fusesource.mvnplugins</groupId>
 				<artifactId>maven-uberize-plugin</artifactId>
@@ -44,6 +67,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<additionalScopes>system</additionalScopes>
+				</configuration>
 			</plugin>
 
 		</plugins>

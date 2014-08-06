@@ -8,12 +8,6 @@ public class Loader {
 	private static Object initializeLock = new Object();
 	private static boolean initialized = false;
 	
-	public static void main(String[] args) {
-		System.out.println("Test load opencv libarary...");
-		init();
-		System.out.println("Success");
-	}
-	
 	public static void init() {
 		init(Loader.class.getClassLoader());
 	}

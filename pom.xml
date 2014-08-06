@@ -2,25 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>ru.kamis</groupId>
-		<artifactId>parent</artifactId>
-		<version>2.0.2</version>
-	</parent>
-
-	<properties>
-		<java.version>1.6</java.version>
-	</properties>
-
-	<repositories>
-		<repository>
-			<id>kamis-repo</id>
-			<url>https://spb.kamis.ru/maven2</url>
-		</repository>
-	</repositories>
-
+	<groupId>ru.kamis</groupId>
 	<artifactId>opencv-bundle</artifactId>
-	<version>2.4.9-4-SNAPSHOT</version>
+	<version>2.4.9-5-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>
@@ -45,6 +29,16 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
@@ -67,9 +61,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<additionalScopes>system</additionalScopes>
-				</configuration>
 			</plugin>
 
 		</plugins>

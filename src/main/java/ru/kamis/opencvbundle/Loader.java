@@ -1,11 +1,10 @@
 package ru.kamis.opencvbundle;
 
 import org.fusesource.hawtjni.runtime.Library;
+import org.opencv.core.Core;
 
 public class Loader {
-	public static String version = "2.4.9"; // TODO: include version here dynamically
-	
-	private static Object initializeLock = new Object();
+	private static final Object initializeLock = new Object();
 	private static boolean initialized = false;
 	
 	public static void init() {
@@ -15,9 +14,8 @@ public class Loader {
 	public static void init(ClassLoader loader) {
 		synchronized (initializeLock) {
 			if(!initialized) {
-				Library library = new Library("opencv_java", version, loader);
+				Library library = new Library(Core.NATIVE_LIBRARY_NAME, Core.VERSION, loader);
 				library.load();
-				
 				initialized = true;
 			}
 		}
